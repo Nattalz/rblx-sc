@@ -89,23 +89,4 @@ return e
 end
 
 
-local e
-e=hookmetamethod(game,"__namecall",function(f,...)
-local g={...}
-local h=getnamecallmethod()
 
-if h=="FireServer"and tostring(f)=="ByteNetReliable"then
-if typeof(g[2])=="table"then
-local i=GetClosestTargetHead()
-if i then
-local j=i:FindFirstAncestorOfClass"Model"
-if j then
-g[2]={j,i,j,i,j,i}
-end
-end
-end
-return f.FireServer(f,unpack(g))
-end
-
-return e(f,...)
-end)
